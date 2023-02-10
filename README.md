@@ -1,33 +1,98 @@
-# Project
+# azure-spring-suitability-rules
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+## Purpose
+This repo is for Cloud Suitability Analyzer rules of Azure Spring Apps. Cloud Suitability Analyzer or CSA for short is a VMWare project to automatically scan for potential cloud remediation issues and cloud accommodation issues embedded in legacy applications.  CSA is entirely data driven using rules comprised of patterns that are first written in `yaml` and then loaded in the CSA command-line executable. To scan your applications to migrate to Azure Spring Apps, use rules folder in this repo, download latest CSA executable and go for it!
 
-As the maintainer of this project, please make a few updates:
+## Run
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+### 1. Download
+Download latest CSA executable at https://github.com/vmware-tanzu/cloud-suitability-analyzer/releases, find the proper one for your local machine.
 
-## Contributing
+| Executable | Platform |
+| ---------- | -------- |
+| `csa.exe`  | Windows  |
+| `csa-l`    | Linux    |
+| `csa`      | OSX      |
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+Clone azure-spring-suitability-rules to local.
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+### 2. Set up environment
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+To effectively use `csa` from the command-line, it will be helpful not to type in the full path every time. So include `csa's` location in your path.
 
-## Trademarks
+#### Adding the path on Linux
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+Change to your home directory.
+
+`cd $HOME`
+
+Open the `.bashrc` file with a text editor.
+
+Add the following line to the file. Replace the <csa directory> with the location directory of `csa`
+
+`export PATH=<csa directory>:$PATH`
+
+Save the file and exit.
+
+Use the source command to force Linux to reload the .bashrc file which normally is read only when you log in each time.
+
+`source .bashrc`
+
+#### Adding the path on OSX
+
+Change to your home directory.
+
+`cd $HOME`
+
+Open the `.bash_profile` file with a text editor.
+
+Add the following line to the file. Replace the <CSA directory> with the location directory of `CSA`
+
+`export PATH=<csa directory>:$PATH`
+
+Save the file and exit.
+
+Use the source command to force Linux to reload the .bashrc file which normally is read only when you log in each time.
+
+`source .bash_profile`
+
+#### Adding path on Windows
+
+[Instructions to change your PATH on Windows 10](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)
+
+
+### 3. Load rules and score model into CSA executable
+
+Run command at azure-spring-suitability-rules root: `csa score-models import --over-write-models`
+
+You'll see message including:
+> Successfully imported [*] rule(s) found @[./rules]
+> 
+> Replacing [0] existing bins with [1] new ones!
+> 
+> Successfully imported [1] bins(s) found @[bins.yaml]
+> 
+> Replacing [0] existing scoring models with [1] new ones!
+> Successfully imported [1] Scoring Model(s) found @[./scoring-models]
+
+### 4. Scan your application files
+
+Navigate to your application root directory in command line, run `csa`. This is a default mode that CSA considers current directory a portfilio. 
+
+```bash
+csa
+```
+
+To tell `csa` to treat each sub-directory under current directory as a stand-alone application, use the`-p` flag on the command-line.
+
+```bash
+csa -p
+```
+
+To target a directory with source code simple run
+
+```bash
+   csa -p <path>
+```
+
+For more infomation about CSA  please refer to https://github.com/vmware-tanzu/cloud-suitability-analyzer.
