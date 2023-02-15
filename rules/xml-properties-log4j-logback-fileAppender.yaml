@@ -4,10 +4,10 @@ target: line
 type: contains-ci
 criticality: Warn
 effort: 3
-readiness: 5
 advice: Replace file appender with console appender
 category: logging
 tags:
+  - value: azure spring apps
   - value: logging
   - value: log2file
 patterns:

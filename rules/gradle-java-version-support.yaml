@@ -1,5 +1,5 @@
 name: gradle-java-version-support
-filetype: gradle$
+filetype: gradle$|kts$
 target: line
 type: regex
 criticality: Warn
