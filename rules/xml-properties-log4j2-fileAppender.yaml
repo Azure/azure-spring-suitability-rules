@@ -1,14 +1,13 @@
 name: logging-log4j2-xml-properties-file-appender
 filetype: xml$|properties$
-# filenamepattern
 target: line
 type: regex
 criticality: Warn
 effort: 3
-readiness: 5
 advice: Replace file appender with console appender
 category: logging
 tags:
+  - value: azure spring apps
   - value: logging
   - value: log2file
 patterns:

@@ -1,5 +1,5 @@
 name: gradle-spring-boot-version
-filetype: gradle$
+filetype: gradle$|kts$
 target: line
 type: regex
 criticality: Critical
