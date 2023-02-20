@@ -1,5 +1,5 @@
-name: java-file-storage-path
-filetype: (java|properties|yaml|yml)
+name: java-file-storage-scheme
+filetype: (java|properties|yaml|yml|xml|json)$
 target: line
 type: regex
 criticality: Warn
@@ -14,5 +14,3 @@ tags:
   - value: file storage
 patterns:
   - value: file:(//.*)?/.+
-  - value: \.+\/[^\n\t]+
-  - value: \/home
