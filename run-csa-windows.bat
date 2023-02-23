@@ -6,44 +6,52 @@
 
 
 if "%1" == "" (
-  echo "Invalid arguments. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
+  echo "[ERROR] No arguments given. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
   exit /b 1
 )
 
 if not "%3" == "" (
-  echo "Invalid arguments. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
+  echo "[ERROR] Too many arguments. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
   exit /b 1
 )
 
 if "%2" == "" (
   if "%1" == "-p" (
-    echo "Invalid arguments. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
+    echo "[ERROR] Invalid argument. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
     exit /b 1
+  ) else (
+    if not exist "%1" (
+      echo "[ERROR] Path %1 does not exist. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
+      exit /b 1
+    )
   )
 )
 
 if not "%2" == "" (
   if not "%1" == "-p" (
     if not "%2" == "-p" (
-      echo "Invalid arguments. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
+      echo "[ERROR] Invalid arguments. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
       exit /b 1
     )
-  ) 
+    if not exist "%1" (
+      echo "[ERROR] Path %1 does not exist. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
+      exit /b 1
+    )
+  )
+  if not exist "%2" (
+    echo "[ERROR] Path %2 does not exist. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
+    exit /b 1
+  )
 )
 
-csa.exe score-models import --over-write-models  || exit /b 1
-csa.exe rules delete-all  || exit /b 1
-csa.exe rules import  || exit /b 1
-csa.exe %1 %2 2>nul
-echo. & echo.
-echo " #running command to analyze"
-echo "csa.exe %1 %2"
-if %errorlevel% neq 0 (
-  :: show a custom error message instead of help message
-  echo. & echo.
-  echo "Invalid argument. Path Not Found. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
-  pause
-  exit /b
-)
 
-csa.exe ui
+:: ignore circumstances in which command has error but exit code is 0
+csa.exe score-models import --over-write-models >> log.txt 2>>&1  || ( echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
+
+csa.exe rules delete-all >> log.txt 2>>&1  || ( echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
+
+csa.exe rules import >> log.txt 2>>&1   || ( echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
+
+csa.exe %1 %2 2>>log.txt || ( echo "[ERROR] Unexpected failure, please validate the arguments given, and send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
+
+csa.exe ui 2>>log.txt || ( echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)

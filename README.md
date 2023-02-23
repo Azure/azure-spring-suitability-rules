@@ -31,7 +31,10 @@ When the flag `-p` missing, CSA considers <path of application> as a single appl
 When the flag `-p` is on, CSA considers each sub-directory under <path of application> as a stand-alone application.
 
 ```bash
+# cmd on windows
 run-csa-windows.bat <path of application> [-p]
+# powershell on windows
+.\run-csa-windows.bat <path of application> [-p]
 ```
 ```bash
 ./run-csa-linux.sh <path of application> [-p]
@@ -41,6 +44,9 @@ run-csa-windows.bat <path of application> [-p]
 ```
 
 The script do things including: initializing rules and score model, analyzing application at given path, open a web service for report at http://localhost:3001.
+It prints logs in log.txt file. If encountering any issues including not working, unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting.
+
+To terminate running, you can type `Ctrl C`.
 
 ### 3. Special commands
 
