@@ -15,7 +15,7 @@ Find the proper script or executable for your local machine.
 |         Script         | Platform |
 | ---------------------- | -------- |
 | `run-csa-windows.bat`  | Windows  |
-|  `run-csa-linux.sh`    | Linux    |
+| `run-csa-linux.sh`     | Linux    |
 | `run-csa-osx.sh`       | OSX      |
 
 | Executable | Platform |
@@ -29,17 +29,18 @@ Find the proper script or executable for your local machine.
 Navigate to the directory of azure-spring-suitability-rules in command line, run the script with <path of application> and flag [-p].
 When the flag `-p` missing, CSA considers <path of application> as a single application. 
 When the flag `-p` is on, CSA considers each sub-directory under <path of application> as a stand-alone application.
+Note that `-p` can be only be used with directory path, cannot be used with file path.
 
-```bash
+```command
 # cmd on windows
 run-csa-windows.bat <path of application> [-p]
 # powershell on windows
 .\run-csa-windows.bat <path of application> [-p]
 ```
-```bash
+```command
 ./run-csa-linux.sh <path of application> [-p]
 ```
-```bash
+```command
 ./run-csa-osx.sh <path of application> [-p]
 ```
 
@@ -54,7 +55,7 @@ You can also run some commands on the executable by yourself.
 In some certain circumstances, this can be quite useful.
 
 If you want to disable one rule, you can delete it by this command.
-```bash
+```command
 # windows
 csa.exe rules delete <rule name>
 # linux
@@ -63,7 +64,7 @@ csa-l rules delete <rule name>
 csa rules delete <rule name>
 ```
 To re-import any rule, navigate to the directory of azure-spring-suitability-rules in command line, then run this command.
-```bash
+```command
 # windows
 csa.exe rules import <rule name>
 # linux

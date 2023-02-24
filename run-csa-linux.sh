@@ -23,11 +23,11 @@ if [ $# == 2 ]; then
     echo "[ERROR] Invalid arguments. Usage: ./run-csa-linux.sh <path> [-p] or ./run-csa-linux.sh [-p] <path>"
     exit 1
   else
-    if [ $1 == "-p" ] && [ ! -e $2 ]; then 
+    if [ $1 == "-p" ] && [ ! -d $2 ]; then 
       echo "[ERROR] Path $2 does not exist. Usage: ./run-csa-linux.sh <path> [-p] or ./run-csa-linux.sh [-p] <path>"
       exit 1
     fi
-    if [ $2 == "-p" ] && [ ! -e $1 ]; then 
+    if [ $2 == "-p" ] && [ ! -d $1 ]; then 
       echo "[ERROR] Path $1 does not exist. Usage: ./run-csa-linux.sh <path> [-p] or ./run-csa-linux.sh [-p] <path>"
       exit 1
     fi
