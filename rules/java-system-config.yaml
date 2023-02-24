@@ -1,5 +1,5 @@
 name: java-system-config
-filetype: $
+filetype: java$
 target: line
 type: contains
 advice: Review usage of environment variables and system properties and externalize. You can use springboot configuration or inject any per-service configuration settings into each service as environment variables. https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#configure-per-service-secrets-and-externalized-settings
