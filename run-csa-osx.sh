@@ -38,5 +38,5 @@ fi
 ./csa score-models import --over-write-models >> log.txt   || { echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting"; exit 2; }
 ./csa rules delete-all >> log.txt   || { echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting"; exit 2; }
 ./csa rules import >> log.txt   || { echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting"; exit 2; }
-./csa $1 $2 2>>log.txt || { echo "[ERROR] Unexpected failure, please validate the arguments given, and send the log.txt to azure-spring-suitability-rules owners for troubleshooting"; exit 2; }
+./csa $1 $2 2>>log.txt || { echo "[ERROR] Unexpected failure, please validate the arguments given, usage: ./run-csa-osx.sh <path> [-p] or ./run-csa-osx.sh [-p] <path>. You can also send log.txt to azure-spring-suitability-rules owners for troubleshooting"; exit 2; }
 ./csa ui 2>>log.txt || { echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting"; exit 2; }
