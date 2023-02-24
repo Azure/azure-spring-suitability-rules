@@ -37,10 +37,11 @@ if not "%2" == "" (
       echo "[ERROR] Path %1 does not exist. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
       exit /b 1
     )
-  )
-  if not exist "%2" (
-    echo "[ERROR] Path %2 does not exist. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
-    exit /b 1
+  ) else (
+      if not exist "%2" (
+        echo "[ERROR] Path %2 does not exist. Usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>"
+        exit /b 1
+      )
   )
 )
 
@@ -52,6 +53,6 @@ csa.exe rules delete-all >> log.txt 2>>&1  || ( echo "[ERROR] Unexpected failure
 
 csa.exe rules import >> log.txt 2>>&1   || ( echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
 
-csa.exe %1 %2 2>>log.txt || ( echo "[ERROR] Unexpected failure, please validate the arguments given, and send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
+csa.exe %1 %2 2>>log.txt || ( echo "[ERROR] Unexpected failure, please validate the arguments given, usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>. You can also end the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
 
 csa.exe ui 2>>log.txt || ( echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
