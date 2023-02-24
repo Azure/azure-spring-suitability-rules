@@ -1,7 +1,7 @@
 name: properties-logging-console-appender
 criticality: Warn
 filetype: xml$
-filenamepattern: log4j2?(-\w+)?\.properties$
+filenamepattern: ^log4j2?(-\w+)?\.properties$
 target: contents
 type: regex
 negative: true

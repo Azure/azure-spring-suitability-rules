@@ -3,7 +3,7 @@ filetype: xml$
 target: contents
 type: regex
 negative: true
-filenamepattern: (log4j2?(-\w+)?\.xml$|logback(-\w+)?\.xml$)
+filenamepattern: ^(log4j2?(-\w+)?\.xml$|logback(-\w+)?\.xml$)
 criticality: Warn
 effort: 5
 advice: Please enable console appender so that ASA can enable your logging
