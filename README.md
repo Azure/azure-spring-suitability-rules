@@ -54,7 +54,16 @@ To terminate running, you can type `Ctrl C`.
 You can also run some commands on the executable by yourself.
 In some certain circumstances, this can be quite useful.
 
-If you want to disable one rule, you can delete it by this command.
+If you want to open CSA report without analyzing the application again, you can open ui by this command:
+```command
+# windows
+csa.exe ui
+# linux
+csa-l ui
+# osx
+csa ui
+```
+If you want to disable one rule, you can delete it by this command:
 ```command
 # windows
 csa.exe rules delete <rule name>
@@ -63,7 +72,7 @@ csa-l rules delete <rule name>
 # osx
 csa rules delete <rule name>
 ```
-To re-import any rule, navigate to the directory of azure-spring-suitability-rules in command line, then run this command.
+To re-import any rule, navigate to the directory of azure-spring-suitability-rules in command line, then run this command:
 ```command
 # windows
 csa.exe rules import <rule name>
