@@ -29,7 +29,7 @@ Find the proper script or executable for your local machine.
 ### 2. Scan your application files
 
 Navigate to the directory of azure-spring-suitability-rules in command line, run the script with <path of application> and flag [-p].
-When the flag `-p` missing, CSA considers <path of application> as a portfilio. 
+When the flag `-p` missing, CSA is in default mode in which considers <path of application> as a portfilio. 
 When the flag `-p` is on, CSA considers each sub-directory under <path of application> as a stand-alone application.
 Note that `-p` can be only be used with directory path, cannot be used with file path.
 
