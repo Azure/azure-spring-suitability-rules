@@ -4,7 +4,9 @@ target: file
 type: xpath
 criticality: Warn
 filenamepattern: ^pom.xml$
-advice: The pom.xml does not have spring-boot-maven-plugin. It is needed to package executable jar.
+advice: This pom.xml does not have spring-boot-maven-plugin.
+        spring-boot-maven-plugin is required for spring boot jar building.
+        Make sure you already introduced this plugin in current pom or parent project pom.
 effort: 4
 category: spring boot
 negative: true

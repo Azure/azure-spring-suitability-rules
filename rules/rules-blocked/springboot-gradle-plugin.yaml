@@ -4,7 +4,9 @@ filenamepattern: ^build.gradle
 target: contents
 type: regex
 criticality: Warn
-advice: The build.gradle does not have Spring Boot Gradle Plugin. It is needed to package executable jar.
+advice: The build.gradle does not have spring-boot-gradle-plugin.
+        spring-boot-gradle-plugin is required for spring boot jar building.
+        Make sure you already introduced this plugin in current gradle or parent project gradle.
 effort: 4
 category: spring boot
 negative: true
