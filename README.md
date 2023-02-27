@@ -2,8 +2,10 @@
 
 ## Purpose
 This repo is Cloud Suitability Analyzer rules for Azure Spring Apps. 
-Cloud Suitability Analyzer or CSA for short is a VMWare project to automatically scan for potential cloud remediation issues and cloud accommodation issues embedded in legacy applications.  
-CSA is entirely data driven using rules comprised of patterns that are first written in `yaml` and then loaded in the CSA command-line executable. 
+
+Cloud Suitability Analyzer or CSA for short is a VMWare project to automatically scan for potential cloud remediation issues and cloud accommodation issues embedded in legacy applications.
+CSA is dependent on rules comprised of patterns and loaded in `csa` command-line executable. 
+
 To scan your applications to migrate to Azure Spring Apps, download latest release, find proper script, and go for it!
 
 ## Run
