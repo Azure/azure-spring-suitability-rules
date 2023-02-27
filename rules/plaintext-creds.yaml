@@ -1,5 +1,5 @@
 name: plaintext-creds
-filetype:
+filetype: java$|properties$|xml$|yaml$|yml$|json$|jsn$
 target: line
 type: regex
 advice: Don't save passwords or login information in files. They are suggested to be stored in Azure Key Vault

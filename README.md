@@ -2,8 +2,10 @@
 
 ## Purpose
 This repo is Cloud Suitability Analyzer rules for Azure Spring Apps. 
-Cloud Suitability Analyzer or CSA for short is a VMWare project to automatically scan for potential cloud remediation issues and cloud accommodation issues embedded in legacy applications.  
-CSA is entirely data driven using rules comprised of patterns that are first written in `yaml` and then loaded in the CSA command-line executable. 
+
+Cloud Suitability Analyzer or CSA for short is a VMWare project to automatically scan for potential cloud remediation issues and cloud accommodation issues embedded in legacy applications.
+CSA is dependent on rules comprised of patterns and loaded in `csa` command-line executable. 
+
 To scan your applications to migrate to Azure Spring Apps, download latest release, find proper script, and go for it!
 
 ## Run
@@ -54,7 +56,16 @@ To terminate running, you can type `Ctrl C`.
 You can also run some commands on the executable by yourself.
 In some certain circumstances, this can be quite useful.
 
-If you want to disable one rule, you can delete it by this command.
+If you want to open CSA report without analyzing the application again, you can open ui by this command:
+```command
+# windows
+csa.exe ui
+# linux
+csa-l ui
+# osx
+csa ui
+```
+If you want to disable one rule, you can delete it by this command:
 ```command
 # windows
 csa.exe rules delete <rule name>
@@ -63,7 +74,7 @@ csa-l rules delete <rule name>
 # osx
 csa rules delete <rule name>
 ```
-To re-import any rule, navigate to the directory of azure-spring-suitability-rules in command line, then run this command.
+To re-import any rule, navigate to the directory of azure-spring-suitability-rules in command line, then run this command:
 ```command
 # windows
 csa.exe rules import <rule name>

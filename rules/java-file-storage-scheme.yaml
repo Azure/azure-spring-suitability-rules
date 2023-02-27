@@ -1,5 +1,5 @@
 name: java-file-storage-scheme
-filetype: (java|properties|yaml|yml|xml|json)$
+filetype: java$|properties$|config$|xml$|yaml$|yml$|json$|jsn$
 target: line
 type: regex
 criticality: Warn

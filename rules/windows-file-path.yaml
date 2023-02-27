@@ -1,5 +1,5 @@
 name: windows-file-path
-filetype: $
+filetype: java$|properties$|xml$|yaml$|yml$|json$|jsn$
 target: line
 type: regex
 criticality: Critical
@@ -10,4 +10,4 @@ tags:
   - value: azure spring apps
   - value: os
 patterns:
-  - value: .*[^\w][A-z]:([\\\/][^\n\t]+)+|(\\\\([^\\\,\n\t]+)\\\S+)+
+  - value: ("|'|`|\s|^)(?:[a-zA-Z]\:|\\\\[\w\s\.]+\\[\w\s\.$]+)([\\\/][^\n\t]+)+
