@@ -1,5 +1,6 @@
-name: logging-log4j-logback-file-appender
+name: xml-properties-log4j-logback-fileAppender
 filetype: xml$|properties$
+filenamepattern: (log4j(-\w+)?\.xml$|logback(-\w+)?\.xml$|log4j(-\w+)?\.properties$)
 target: line
 type: contains-ci
 criticality: Warn

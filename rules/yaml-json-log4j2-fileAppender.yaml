@@ -1,5 +1,6 @@
-name: logging-log4j2-yaml-json-file-appender
+name: yaml-json-log4j2-fileAppender
 filetype: yaml$|json$|jsn$
+filenamepattern: (log4j2?(-\w+)?\.yaml$|log4j2?(-\w+)?\.yml$|log4j2?(-\w+)?\.json$|log4j2?(-\w+)?\.jsn$)
 target: file
 type: yamlpath
 criticality: Warn

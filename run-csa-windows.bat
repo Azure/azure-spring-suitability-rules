@@ -47,12 +47,12 @@ if not "%2" == "" (
 
 
 :: ignore circumstances in which command has error but exit code is 0
-csa.exe score-models import --over-write-models >> log.txt 2>>&1  || ( echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
+csa.exe score-models import --over-write-models >> log.txt 2>>&1  || ( echo "[ERROR] Unexpected failure, exit code: %%errorlevel%%, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
 
-csa.exe rules delete-all >> log.txt 2>>&1  || ( echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
+csa.exe rules delete-all >> log.txt 2>>&1  || ( echo "[ERROR] Unexpected failure, exit code: %%errorlevel%%, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
 
-csa.exe rules import >> log.txt 2>>&1   || ( echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
+csa.exe rules import >> log.txt 2>>&1   || ( echo "[ERROR] Unexpected failure, exit code: %%errorlevel%%, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
 
-csa.exe %1 %2 2>>log.txt || ( echo "[ERROR] Unexpected failure, please validate the arguments given, usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>. You can also end the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
+csa.exe %1 %2 2>>log.txt || ( echo "[ERROR] Unexpected failure, exit code: %%errorlevel%%, please validate the arguments given, usage: run-csa-windows.bat <path> [-p] or run-csa-windows.bat [-p] <path>. You can also end the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
 
-csa.exe ui 2>>log.txt || ( echo "[ERROR] Unexpected failure, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
+csa.exe ui 2>>log.txt || ( echo "[ERROR] Unexpected failure, exit code: %%errorlevel%%, please send the log.txt to azure-spring-suitability-rules owners for troubleshooting" && exit /b 2)
