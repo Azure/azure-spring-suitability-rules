@@ -10,5 +10,4 @@ tags:
   - value: azure spring apps
   - value: zipkin
 patterns:
-  - value: //*[matches(groupId, "io.zipkin")]
-  - value: //*[groupId="org.springframework.boot" and artifactId="spring-cloud-starter-zipkin"]
+  - value: //*[contains(groupId, "zipkin") or contains(artifactId, "zipkin")]
