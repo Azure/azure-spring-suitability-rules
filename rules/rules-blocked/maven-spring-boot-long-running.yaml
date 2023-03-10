@@ -1,0 +1,15 @@
+name: maven-spring-boot-long-running
+filetype: xml$
+filenamepattern: ^pom.xml$
+target: file
+type: xpath
+criticality: Warn
+advice: The application does not have spring-boot-web/admin-server/gateway/config-server/eureka-server packages. Make sure it is a valid Spring Boot long-running app which Azure Spring Apps supports.
+effort: 5
+category: spring boot
+negative: true
+tags:
+  - value: azure spring apps
+  - value: spring boot
+patterns:
+  - value: //*[artifactId="spring-boot-admin-starter-server" or artifactId="spring-cloud-starter-gateway" or artifactId="spring-cloud-config-server" or artifactId="spring-cloud-starter-netflix-eureka-server" or artifactId="spring-boot-starter-web" or artifactId="spring-boot-starter-webflux" or artifactId="spring-boot-starter-undertow" or artifactId="spring-boot-starter-tomcat" or artifactId="spring-boot-starter-jetty" or artifactId="spring-web" or artifactId="spring-webflux"]
