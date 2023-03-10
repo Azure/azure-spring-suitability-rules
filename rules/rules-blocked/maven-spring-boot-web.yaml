@@ -3,9 +3,9 @@ filetype: xml$
 filenamepattern: ^pom.xml$
 target: file
 type: xpath
-criticality: Critical
+criticality: Warn
 advice: The application does not have spring boot web packages. Make sure it is a valid Spring Boot long-running app which Azure Spring Apps supports.
-effort: 50
+effort: 5
 category: spring boot
 negative: true
 tags:
