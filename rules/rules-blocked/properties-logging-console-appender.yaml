@@ -12,4 +12,4 @@ tags:
   - value: azure spring apps
   - value: logging
 patterns:
- - value: (?i)(appender.*=.*ConsoleAppender|appender.*\.type.*=.*Console)
+ - value: (?i)(appender.*=.*ConsoleAppender|appender.*\.type.*=.*Console|(org/springframework/boot/logging/logback/base.xml)|(org/springframework/boot/logging/log4j2/log4j2.xml))
