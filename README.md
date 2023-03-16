@@ -51,7 +51,34 @@ It prints logs in log.txt file. If encountering any issues including not working
 
 To terminate running, you can type `Ctrl C`.
 
-### 3. Special commands
+If encountering error message like "./run-csa-linux.sh: cannot execute: required file not found", please run `dos2unix run-csa-linux.sh` to make sure the file is linux compatible.
+
+### 3. Scan your jar file
+
+> **Caution:** JAVA_17 needed in environment for jar scanning
+
+Navigate to the directory of azure-spring-suitability-rules in command line, run the script with <jar path> and flag [--decompile-dir=<decompile-path>].
+When the flag `[--decompile-dir=<decompile-path>]` missing, CSA will decompile and analyze it in a tmp directory.
+If you want to check the decompiled files, set When the flag `[--decompile-dir=<decompile-path>]`, then you can find the decompiled files in `<decompile-path>`.
+
+It can only handle one jar at one time, please don't input a directory path as a jar path.
+
+```command
+# cmd on windows
+run-jar-windows.bat <jar-path> [--decompile-dir=<decompile-path>]
+# powershell on windows
+.\run-jar-windows.bat <jar-path> [--decompile-dir=<decompile-path>]
+```
+```command
+./run-jar-linux.sh <jar-path> [--decompile-dir=<decompile-path>]
+```
+```command
+./run-jar-osx.sh <jar-path> [--decompile-dir=<decompile-path>]
+```
+Similar with earlier mentioned scripts, the scripts in this section do things including: initializing rules and score model, analyzing jar file at given path, open a web service for report at http://localhost:3001.
+It prints logs in log-jar.txt file. If encountering any issues including not working, unexpected failure, please send the log-jar.txt to azure-spring-suitability-rules owners for troubleshooting. 
+
+### 4. Special commands
 
 You can also run some commands on the executable by yourself.
 In some certain circumstances, this can be quite useful.
