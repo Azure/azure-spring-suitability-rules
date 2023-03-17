@@ -1,6 +1,9 @@
 #!/bin/bash
 # bash script
 # Usage: ./run-jar-linux.sh <jar-path> [--decompile-dir=<decompile-path>]
+
+echo ""
+echo "./run-jar-linux.sh $1 $2 $3">> log-jar.txt
 if [ $# -eq 0 -o $# -gt 2 ]; then 
   echo "[ERROR] No arguments or too many arguments given. Usage: ./run-jar-linux.sh <jar-path> [--decompile-dir=<decompile-path>]"
   exit 1
