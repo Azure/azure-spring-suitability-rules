@@ -1,5 +1,5 @@
 name: plaintext-creds
-filetype: java$|properties$|xml$|yaml$|yml$|json$|jsn$
+filetype: properties$|yaml$|yml$|
 target: line
 type: regex
 advice: Don't save passwords or login information in files. They are suggested to be stored in Azure Key Vault
@@ -10,6 +10,5 @@ tags:
   - value: azure spring apps
   - value: security
 patterns:
-  - value: Password(\s)*=
-  - value: User(\s)*=
-  - value: User(\s)*Id(\s)*=
+  - value: (?i)Password(\s)*=
+  - value: (?i)User(\s)*Id(\s)*=
