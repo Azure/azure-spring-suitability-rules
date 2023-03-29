@@ -13,3 +13,4 @@ patterns:
   - value: System.getenv(
   - value: System.getProperty(
   - value: System.setProperty(
+  - value: System.setProperties(
